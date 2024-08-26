@@ -1,0 +1,349 @@
+
+<% layout("/layouts/boilerplate.ejs") %>
+
+
+
+<script>
+  
+  const mapToken = "<%= process.env.MAP_TOKEN %>";  //first access the web token then at the end add the script tag (map.js)***
+  const coordinates = <%- JSON.stringify(list.geometry.coordinates) %>;  //gave access to map.script
+  
+</script>
+
+<style>
+
+/*======================= FOR Mobile view ==========================*/
+@media (max-width: 1399px) { 
+  .mapContainer{
+  width: 1200px !important;
+}
+}
+
+
+
+@media (max-width: 991px) { 
+  .ShowALlCard{
+    padding-right: 0;
+    margin: 0 0 0 5rem !important;
+}
+ .showCsrdbtns{
+  margin: 0 0 0 5rem !important;
+ }
+
+ .wholeReviewSection{
+  margin: 0 0 0 5rem;
+  width: 80% !important;
+ }
+}
+
+
+
+
+
+@media (max-width: 767px) { 
+    .main-Image{
+      height: 20rem !important;
+      width: 35rem !important;
+      overflow: hidden !important;
+    }
+    .container{
+     margin: 0rem !important;
+     padding: 0 !important;
+  }
+ 
+ .wholeReviewSection{
+  margin: 0 0 0 5rem;
+  width: 80% !important;
+ }
+ .ShowALlCard{
+    margin: 0 0 0 5rem !important;
+ }
+ .MapMainContainer{
+    margin: 0 !important;
+    width: 100vw;
+   }
+}
+
+
+
+
+
+@media (max-width: 699px) {
+  .container{
+     margin: 0rem !important;
+     padding: 0 !important;
+  }
+
+  .main-Image{
+      height: 15rem !important;
+      width: 29rem !important;
+      overflow: hidden !important;
+    }
+
+ .ShowALlCard{
+    padding-right: .5rem !important;
+}
+
+.MapMainContainer{
+    margin: 0 !important;
+    width: 100vw;
+   }
+
+  }
+
+
+ @media (max-width: 625px) {
+  .container{
+     margin: 0rem !important;
+     padding: 0 !important;
+  }
+
+  .main-Image{
+      height: 14rem !important;
+      width: 24.2rem !important;
+      overflow: hidden !important;
+    }
+
+ .ShowALlCard{
+    margin: 0;
+}
+.MapMainContainer{
+    margin: 0 !important;
+    width: 100vw;
+   }
+ }
+
+
+@media (max-width: 469px) {
+
+  .container{
+      margin: 0rem !important;
+     padding: 0 !important;
+  }
+  .main-Image{
+      height: 13rem !important;
+      width: 20rem !important;
+      overflow: hidden !important;
+    }
+
+  .ShowALlCard{
+    margin-left: 2.5rem !important;
+}
+ .showCsrdbtns{
+  margin: 0 0 0 2rem !important;
+ }
+
+ .wholeReviewSection{
+  margin: 0 0 0 2rem;
+ }
+
+ .MapContainer{
+  height: 370px !important;
+    }
+}
+
+
+
+</style>
+
+<body>
+
+  <br><br>
+
+<div class="ShowALlCard offset-3">
+
+  <h3>  <%= list.title%> </h3> <br>
+
+  <div class="card listing-card main-Image" >
+      <img src="<%= list.image. url %>" class="card-img-top showAllImage" alt="listing Card">
+      
+     
+      <div class="card-body">
+        
+          <p><i> Owned by <%=list.owner.username%></i></p> 
+         <!-- <h5 class="card-title"> <b> <%= list.title%>  </b></h5>  --> 
+          <p class="card-text"> <%= list.description%> </p>
+          <p class="card-text"> &#8377;<%= list.price.toLocaleString("en-IN")%>/ night </p>
+          <p class="card-text"> <%= list.location%> </p>
+          <p class="card-text"> <%= list.country%> </p>
+        
+      </div>
+
+  </div> 
+</div>
+
+<!--Create Authorization for Owner only..-->
+
+ <% if(currentUser && currentUser._id.equals(list.owner._id)){ %>
+  <div class="showCsrdbtns  offset-3">
+    <a href="/listing/<%= list._id%>/edit" class="btn editFormbtn">Edit List </a> <br> 
+    <form method="POST" action="/listing/<%=list._id %>?_method=DELETE">  
+     <button class="btn editFormbtn editFormbtnD " >Delete</button>
+     </form>
+   </div>  <br> 
+ 
+   <%}%>
+
+  
+  <% if(list.reviews.length !=0){ %>
+     <hr>
+  <% } %>
+
+   <br>
+
+
+  <!-- Create Review Section -->
+
+  <div class="col-7 offset-3 wholeReviewSection">
+    <% if(currentUser){ %>
+    <h4>Leave a Review</h4>
+    <form action="/listing/<%= list._id%>/review" method="POST" novalidate class="needs-validation">  <!--Bootstrape validation-->
+        <div class="mb-3 mt-3" >
+          <label for="rating" class="form-label" >Rating</label>
+          <!-- <input class="form-range" id="rating" type="range" min="1" max="5" name="Review[rating]"> -->
+          <!-- custome rating - Star -->
+        
+          <!------------------------------------------------------------------------------------------------Emoji rating-------------------------------------------->
+          <div class="feedback" id="rating">
+            <label class="angry">
+              <input type="radio" value="1" name="Review[rating]" />
+              <div>
+                <svg class="eye left">
+                  <use xlink:href="#eye">
+                </svg>
+                <svg class="eye right">
+                  <use xlink:href="#eye">
+                </svg>
+                <svg class="mouth">
+                  <use xlink:href="#mouth">
+                </svg>
+              </div>
+            </label>
+            <label class="sad">
+              <input type="radio" value="2" name="Review[rating]" />
+              <div>
+                <svg class="eye left">
+                  <use xlink:href="#eye">
+                </svg>
+                <svg class="eye right">
+                  <use xlink:href="#eye">
+                </svg>
+                <svg class="mouth">
+                  <use xlink:href="#mouth">
+                </svg>
+              </div>
+            </label>
+            <label class="ok">
+              <input type="radio" value="3" name="Review[rating]" />
+              <div></div>
+            </label>
+            <label class="good">
+              <input type="radio" value="4" name="Review[rating]" checked />
+              <div>
+                <svg class="eye left">
+                  <use xlink:href="#eye">
+                </svg>
+                <svg class="eye right">
+                  <use xlink:href="#eye">
+                </svg>
+                <svg class="mouth">
+                  <use xlink:href="#mouth">
+                </svg>
+              </div>
+            </label>
+            <label class="happy">
+              <input type="radio" value="5" name="Review[rating]" />
+              <div>
+                <svg class="eye left">
+                  <use xlink:href="#eye">
+                </svg>
+                <svg class="eye right">
+                  <use xlink:href="#eye">
+                </svg>
+              </div>
+            </label>
+          </div>
+          
+          <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+            <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7 4" id="eye">
+              <path d="M1,1 C1.83333333,2.16666667 2.66666667,2.75 3.5,2.75 C4.33333333,2.75 5.16666667,2.16666667 6,1"></path>
+            </symbol>
+            <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 7" id="mouth">
+              <path d="M1,5.5 C3.66666667,2.5 6.33333333,1 9,1 C11.6666667,1 14.3333333,2.5 17,5.5"></path>
+            </symbol>
+          </svg>
+         <!----------------------------------------------------End of Animation Emoji rating-------------------------------------------->
+        
+       
+
+        </div>
+
+        <div class="mb-3 mt-3"> 
+          <label for="comment" class="form-label">Comment</label>
+          <textarea class="form-control reviewComments" id="comment" cols="35" rows="5" name="Review[comment]" required></textarea>
+          <div class="invalid-feedback"> Please add some comments for review. </div>
+        </div>
+        <button class="btn btn-outline-dark" >Submit</button> 
+    </form>
+    <br>
+  
+    <% } %>
+    
+    
+
+    <!-- Review Display Section -->
+    
+    <% if( list.reviews.length) { %>
+      
+     <p><b> All Reviews </b></p>
+    <%}%>
+
+      <div class="row">
+        <% for(review of list.reviews) { %>
+        <div class="card reviewCard col-5 mb-3 ms-3" > <!--Bootstrap styling-->
+          <div class="card-body">
+            <h5 class="card-title">@<%= review.author.username %></h5>
+            
+            <!-- <p class="card-text"> <%= review.rating%> stars </p> -->
+            
+            <!-- Custome start  STATIC rating ----------------------------------------------------->
+              <div id="star-container">
+                <%                     
+                   const rating = review.rating; 
+                   const totalStars = 5; // Total number of stars
+                
+                   for (let i = 1; i <= totalStars; i++) {
+                        const starClass = i <= rating ? 'fa-star checked' : 'fa-star unchecked';
+                  %>
+                      
+                       <span class="fa <%= starClass %> tiny-star"></span> <!-- Use tiny-star for very small size -->
+                    
+                   <% } %>
+
+              </div> 
+            <!-- ------------------------------------------------------------------------------------>
+              
+            <p class="card-text"> <%= review.comment %> </p>
+            
+          </div> 
+
+          <form class="mb-3" method="POST" action="/listing/<%= list._id%>/review/<%= review._id %>?_method=DELETE"  >
+            <button class="btn btn-sm btn-dark">Delete</button>
+          </form>
+        </div>
+
+       <% } %>
+      </div>    
+      
+  </div>
+  <br><hr>
+
+  <div class="col-11 offset-1 row MapMainContainer">
+      <h3> Where you'll be </h3>        
+      <div  class="MapContainer" id="map"  rows="5"></div>
+  </div>
+ 
+  <br><br><br><br>
+
+
+</body>

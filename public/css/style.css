@@ -1,0 +1,294 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+
+
+
+body{
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+}
+
+/* 
+@media (min-width: 1600px) {
+    .container {
+      width: 1500px !important;
+    }
+} */
+
+
+/*======================  NAVBAR ===================*/
+
+ .navbar{    
+    background-color:white ;
+    padding: 1.5rem !important;
+  }
+
+.fa-compass{
+    color: #FF5A5F;
+    font-size: 2rem;
+}
+
+@media (max-width: 767.98px) { 
+
+    .navbar{    
+        background-color:#ebebeb ;
+   }
+
+   .Explore-btn{
+    display: none !important;
+   }
+
+   .main-searchbar{
+    margin-top: 2rem !important;
+   }
+
+  
+
+   .search-box{
+    text-align: center;
+   }
+
+   .create-new-navbar{
+    margin-top: .5rem;
+   }
+}
+
+
+
+
+/*======================  NAVBAR ICONS ===================*/
+
+#filters{
+  display:flex;
+  align-items: center;
+}
+
+.filter{
+ display: flex;
+flex-direction: column;
+align-items: center;  
+margin: .6rem;
+margin-right: 2rem;
+opacity: .7;
+}
+
+.filter:hover{
+  opacity: 1;
+  cursor: pointer;
+}
+
+#iconsName{
+  font-size: 13px;
+}
+
+
+
+/*======================  SEARCH BAR ===================*/
+
+.search-btn{
+    background-color: #FF5A5F !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: 3rem !important;
+    width: 11rem !important;
+}
+
+.search-btn i{
+    display: inline-block !important;
+}
+
+.search-box{
+    text-align: center;
+    border-radius: 3rem !important;
+    font-size: .8rem !important;
+}
+
+
+
+
+/*======================  FOOTER ===================*/
+
+footer{
+    height: 8rem;
+    border-top: 1px solid rgb(190, 190, 190);
+    background-color:#ebebeb;
+    padding-top: 1rem;
+
+    /*  to FIXED in bottom */
+    margin-top: auto;     /* + in body{  min-height:100vh; display:flex; flex-direction:column;  }*/
+
+    
+}
+
+.f-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: .5rem;
+}
+
+
+
+.f-info-links a{
+    text-decoration: none;
+    color: #222222;
+}
+.f-info-links a:hover{
+    text-decoration: underline;
+}
+
+
+/*icons*/
+.fa-brands{
+    margin: .4rem;
+    font-size: 1.2rem;
+}
+
+
+
+
+
+/*======================  MAIN CARDs ===================*/
+
+.ShowALlCard{
+    padding-right: 15rem;
+}
+
+.listing-card{
+    border: none !important;
+    margin-bottom: 2rem;
+   
+}
+
+.card-img-top{
+    border-radius: 1rem !important ;
+    width: 100% !important;
+    object-fit: cover !important;  /* to covered image perfectly*/ 
+}
+
+.card-body{
+    padding: 0 !important;
+}
+
+.listing-link{   /* to remove anchor tag's line*/
+    text-decoration: none;
+}
+
+
+.card-img-overlay{
+    opacity: 0;
+}
+
+.card-img-overlay:hover{
+    opacity: 0.1;
+    background-color: white;
+}
+
+
+
+
+/*======================  NEW PAGE FORM  ===================*/
+.addbtn{
+    background-color: #FF5A5F !important;
+    color: white !important;
+}
+
+
+
+
+
+/*======================  EDIT PAGE  ===================*/
+.editbtn{
+    background-color: #FF5A5F !important;
+    color: white !important;
+}
+
+
+
+
+
+
+/*======================  DETAILS POST PAGE  ===================*/
+
+.editFormbtn{
+    background-color: #FF5A5F !important;
+    color: white !important;
+    width: 6rem;
+    height: 2.5rem;
+}
+
+.editFormbtnD{
+    background-color: rgb(27, 27, 27) !important;
+}
+
+
+.showCsrdbtns{
+ display: flex;
+ gap: 2rem;
+}
+
+.showAllImage{
+    border-radius: 1rem !important ;
+    width: 100% !important;
+    height: 27rem !important;
+
+    object-fit: cover !important;  /* to covered image perfectly*/ 
+}
+
+
+
+
+
+
+/*======================  REVIEW STARTs ===================*/  
+
+
+  .fa-star {
+      color: rgb(27, 27, 27);
+  }
+  .unchecked {
+      color: lightgray;
+  }
+  .tiny-star {
+            font-size: 0.66rem; /* Adjust to make stars even smaller */
+  }
+
+
+/*======================  Bellow REVIEW STARTs text  ===================*/  
+
+.card-text{
+    margin-top: 1rem;
+    margin-bottom: 1.5rem !important;
+}
+
+.card-title{
+    font-size: 1rem;
+    margin-top: .5rem;
+}
+
+
+/*======================  MAP section  ===================*/  
+
+#map {
+    height:480px;
+    width: 1120px; 
+}
+
+
+
+#marker {
+        background-image: url('https://res.cloudinary.com/db4aeva1d/image/upload/v1724294837/file_h7l06v.png');  /* center custom logo Url */
+        background-size: cover;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        cursor: pointer;
+}
+
+.mapboxgl-popup {
+          max-width: 200px;
+}
+    

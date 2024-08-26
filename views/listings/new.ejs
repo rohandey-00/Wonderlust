@@ -1,0 +1,81 @@
+
+<% layout("/layouts/boilerplate") %>
+
+
+<body>
+    
+<br><br>    
+
+<div class="row">   <!-- to make the space small that the form have occupied-->
+  <div class="col-8 offset-2">
+
+    <h3> Create a new Listing</h3> <br>
+
+    <form  method="POST" action="/listing"  novalidate class="needs-validation" enctype="multipart/form-data">  <!-- At first disable brouser default 'required' then use bootstrape custom validator-->
+
+        <div class="mb-3">  <!-- mb-3 is for marzin buttom 3 & no need to <br>  -->
+            <label for="title" class="form-label">Title</label>    <!--Bootstrap class for  design-->
+            <input type="text"  class="form-control" id="title" placeholder="Add a catchy title" name="Listing[title]" required >          <!-- Listing object, key [title]  new way-->
+            
+            <div class="valid-feedback"> Titles looks good! </div> <!--Success or failure text (bootstrap)-->
+        </div>
+
+        <div class="mb-3">
+          <label for="Description" class="form-label">Description</label>
+          <!-- <input type="text" class="form-control" id="Description" placeholder="Add description" name="Listing[description]" required>  -->
+          <textarea id="Description" name="Listing[description]"  rows="10" cols="40" class="form-control" required></textarea> 
+
+          <div class="invalid-feedback"> Please provide a short description </div>
+        </div>
+
+        <!--  <div class="mb-3">
+            <label for="EnterImage" class="form-label">Image Link</label>
+            <input type="text" class="form-control" id="EnterImage" placeholder="Add Image URL/Link" name="Listing[image]">
+        </div> -->
+
+        <div class="mb-3">
+            <label for="EnterImage" class="form-label">Upload listing image</label>
+            <input type="file" class="form-control" id="EnterImage" placeholder="Add Image URL/Link" name="Listing[image]" required>
+
+            <div class="invalid-feedback"> Choose a valid image</div>
+        </div>
+       
+        <div class="row">   <!--make them join -->
+           <div class="mb-3 col-md-4">   <!-- After mediam page size only it would go into same line {4 collumn}, otherwise in small page it must be show in different line -->
+               <label for="EnterPrice" class="form-label">Price</label>
+
+                <div class="input-group">
+                    <span class="input-group-text" id="basic-addon1">₹</span>
+                    <input type="text" class="form-control" id="EnterPrice" placeholder="Add price" name="Listing[price]" required >
+                     <div class="invalid-feedback"> Enter valid price </div>
+                </div>
+              
+           </div>
+            <br>
+           <div class="mb-3 col">
+               <label for="EnterLocation" class="form-label">location</label>
+               <input type="text" class="form-control" id="EnterLocation" placeholder="Add location" name="Listing[location]" required>
+
+               <div class="invalid-feedback"> Please provide a location name</div>
+
+           </div>
+        </div>
+      
+        <div class="mb-3">
+            <label for="EnterCountry" class="form-label">Country</label>
+            <input type="text" class="form-control" id="EnterCountry" placeholder="Add country" name="Listing[country]" required>
+
+            <div class="invalid-feedback"> Please provide a country name</div>
+
+        </div>
+
+        <br>
+        
+        <button class="btn addbtn">Add</button>
+        <br><br>
+    </form>
+</div>  
+</div>
+
+
+</body>

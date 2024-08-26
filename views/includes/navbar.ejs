@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-md bg-body-light  sticky-top">  <!--navbar -expend-md means we need show full navbar upto md screen size after that it turn into small button-->
+   
+  <div class="container-fluid">
+      <a class="navbar-brand" href="/listing">  <i class="fa-solid fa-compass"></i>  </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+            <div class="navbar-nav">
+              <a class="nav-link Explore-btn" href="/listing">Explore</a>                 
+            </div>
+
+            <div class="navbar-nav ms-auto main-searchbar">
+              <form class="d-flex" role="search">
+                <input class="form-control me-2 search-box" type="search" placeholder="Search Destination" >
+                <button class="btn btn-outline-success search-btn" type="submit" > <i class="fa-solid fa-magnifying-glass"></i> Search</button>
+              </form>
+            </div>
+
+
+            <div class="navbar-nav ms-auto">   <!--margin start - auto to shift in the right side -->
+               <a class="nav-link create-new-navbar " href="/listing/new"> New    wonderlust </a>
+
+               <% if(!currentUser){ %>
+                <a class="nav-link" href="/signup"><b>Signup</b></a>
+                <a class="nav-link" href="/login"><b>Login</b></a>
+                <%}%>
+
+                <% if(currentUser){ %>
+                <a class="nav-link" href="/logout"><b>Logout</b></a>
+               <%}%>
+            </div>
+       </div>
+       
+    </div>
+  </nav>

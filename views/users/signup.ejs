@@ -1,0 +1,51 @@
+
+<% layout("/layouts/boilerplate") %>
+
+
+
+<body>
+    
+    <br><br><br><br>    
+
+    <h1 class="col-5 offset-3 mb-5">SignUp on Wonderlust</h1>
+    
+    <div class="row">   <!-- to make the space small that the form have occupied-->
+      <div class="col-5 offset-3" >
+
+        <form action="/signup" method="POST" novalidate class="needs-validation">
+
+           
+           
+            <div class="mb-3">  <!-- mb-3 is for marzin buttom 3 & no need to <br>  -->    <!--USERNAME-->
+                <label for="username" class="form-label">Username</label>    <!--Bootstrap class for  design-->
+                <input type="text"  class="form-control" id="username" placeholder="Type username" name="username" required >          
+                
+                <div class="valid-feedback"> looks good! </div> <!--Success or failure text (bootstrap)-->
+            </div>
+
+            <div class="mb-3">  <!--EMAIL-->
+                <label for="email" class="form-label">Email</label>    
+                <input type="email"  class="form-control" id="email" placeholder="Enter email" name="email" required >          
+                
+                <div class="invalid-feedback"> Please enter a email address </div>
+            </div>
+
+            <div class="mb-3">  <!--PASSWORD-->
+                <label for="password" class="form-label">Password</label>    
+                <input type="password"  class="form-control" id="password" placeholder="Enter password" name="password" required >          
+                
+                <div class="invalid-feedback"> Please enter a password </div>
+            </div>
+
+            <br>
+            <button class="btn addbtn">SignUp</button>
+            <br><br>
+
+
+            
+        </form>
+
+       </div>
+    </div>
+
+</body>
