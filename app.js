@@ -15,18 +15,24 @@ const { listingSchema, reviewSchema } = require("./schema.js");  //joi validator
 const Review = require("./models/review.js");
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
+const { MongoClient } = require('mongodb');
 const flash = require('connect-flash');
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
 
-
-// const DB_URL = process.env.ATLASDB_URL;
+const DB_URL = process.env.ATLASDB_URL;
 
 
 //Mongo Session
+const clientPromise = MongoClient.connect(DB_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+});
+
 const store = MongoStore.create({
-    mongoUrl: process.env.ATLASDB_URL,
+    mongoUrl: DB_URL,
+    clientPromise,
     crypto: {
         secret: process.env.SECRET,
     },
@@ -39,7 +45,7 @@ store.on("error",(err)=>{
 
 //for sessions
 const sessionOptions = {
-    store: store, //mongo session store
+    store,                  //mongo session store =>   store: store,
     secret : process.env.SECRET,
     resave : false,
     saveUninitialized : true,
@@ -50,7 +56,8 @@ const sessionOptions = {
     }, 
 }
 
-console.log('DB_URL:', process.env.ATLASDB_URL);
+
+console.log('DB_URL:', DB_URL);
 console.log('SECRET:', process.env.SECRET);
 
 
@@ -106,7 +113,7 @@ main()
     })
 
 async function main(){
-    await mongoose.connect(process.env.ATLASDB_URL);
+    await mongoose.connect(DB_URL);
 }
 
 
