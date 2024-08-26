@@ -56,9 +56,6 @@ const sessionOptions = {
 }
 
 
-console.log('DB_URL:', DB_URL);
-console.log('SECRET:', process.env.SECRET);
-
 
 app.use(session(sessionOptions)); //[1]
 app.use(flash());  //[2]
