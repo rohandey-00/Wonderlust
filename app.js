@@ -26,8 +26,7 @@ const DB_URL = process.env.ATLASDB_URL;
 
 //Mongo Session
 const clientPromise = MongoClient.connect(DB_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
+   
 });
 
 const store = MongoStore.create({
