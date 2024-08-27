@@ -1,16 +1,15 @@
 
 <% layout("/layouts/boilerplate") %>
-
-
+<link rel="stylesheet" href="/css/Login_ejs.css">
 
 <body>
     
     <br><br><br><br>    
 
-    <h1 class="col-5 offset-3 mb-5">SignUp on Wonderlust</h1>
+    <h1 class="col-5 offset-3 mb-5 mainHeading">SignUp on Wonderlust</h1>
     
-    <div class="row">   <!-- to make the space small that the form have occupied-->
-      <div class="col-5 offset-3" >
+    <div class="row outerLoginForm">   <!-- to make the space small that the form have occupied-->
+      <div class="col-5 offset-3 loginFormDetails" >
 
         <form action="/signup" method="POST" novalidate class="needs-validation">
 

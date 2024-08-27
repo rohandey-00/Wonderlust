@@ -1,0 +1,40 @@
+
+@media (max-width: 767px) {
+  
+    .navbar{
+      width: 100vw !important;  /* when we gave body to display flex, it also became small, thats why we gave it 100vw */
+     }
+  
+    body{
+      display: flex;
+       flex-direction: column;
+       align-items: center;
+      
+      }
+    .container{
+       margin: 0rem !important;
+       padding: 2rem !important;
+       
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       
+      }
+      .mainHeading{
+          margin: 0;
+          width: 100% !important;
+          }
+      .loginFormDetails{
+          margin: 0;
+          padding:0 ;
+          width: 100% !important;
+      }
+      .outerLoginForm{
+          width: 100% !important;
+      }
+      .f-info{
+        width: 100vw; /* footer to 100% width*/
+      }
+     
+   }
+  

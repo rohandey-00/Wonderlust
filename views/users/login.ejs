@@ -1,22 +1,22 @@
 
 <% layout("/layouts/boilerplate") %>
 
-
+<link rel="stylesheet" href="/css/Login_ejs.css">
 
 <body>
     
     <br><br><br><br>    
 
-    <h1 class="col-5 offset-3 mb-5">LogIn on Wonderlust</h1>
+    <h1 class="col-5 offset-3 mb-5 mainHeading">LogIn on Wonderlust</h1>
     
-    <div class="row">   <!-- to make the space small that the form have occupied-->
-      <div class="col-5 offset-3" >
+    <div class="row outerLoginForm" >   <!-- to make the space small that the form have occupied-->
+      <div class="col-5 offset-3 loginFormDetails" >
 
         <form action="/login" method="POST" novalidate class="needs-validation">
 
            
            
-            <div class="form-floating mb-3">  <!-- mb-3 is for marzin buttom 3 & no need to <br>  -->    <!--USERNAME-->
+            <div class="form-floating mb-3 ">  <!-- mb-3 is for marzin buttom 3 & no need to <br>  -->    <!--USERNAME-->
                 <input type="text"  class="form-control" id="floatingUsername" placeholder="Username" name="username" required >          
                 <label  for="floatingUsername">Username</label>    
 
@@ -24,11 +24,11 @@
             </div>
 
             
-            <div class="form-floating mb-3">  <!--PASSWORD-->
+            <div class="form-floating mb-3 ">  <!--PASSWORD-->
                 <input type="password"  class="form-control" id="floatingPassword" placeholder="Password" name="password" required >          
                 <label for="floatingPassword">Password</label>
 
-                <div class="invalid-feedback"> Please enter the password </div>
+                <div class="invalid-feedback "> Please enter the password </div>
             </div>
 
             <br>

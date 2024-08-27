@@ -11,12 +11,6 @@ body{
 
 }
 
-/* 
-@media (min-width: 1600px) {
-    .container {
-      width: 1500px !important;
-    }
-} */
 
 
 /*======================  NAVBAR ===================*/
@@ -121,7 +115,7 @@ footer{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: .5rem;
+    margin: .5rem 0;
 }
 
 
@@ -285,3 +279,19 @@ footer{
           max-width: 200px;
 }
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=  LOGIN.ejs  =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=*/  
+
+

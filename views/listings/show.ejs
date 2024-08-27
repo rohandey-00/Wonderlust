@@ -1,7 +1,7 @@
 
 <% layout("/layouts/boilerplate.ejs") %>
 
-
+<link rel="stylesheet" href="/css/Show_ejs.css">
 
 <script>
   
@@ -9,73 +9,6 @@
   const coordinates = <%- JSON.stringify(list.geometry.coordinates) %>;  //gave access to map.script
   
 </script>
-
-<style>
-
-/*======================= FOR Mobile view ==========================*/
-
-@media(max-width: 1200px){
-  .ShowALlCard{
-    margin: 0 !important;
-    padding: 0 7.5rem !important ;
-  }
-  .MapMainContainer{
-    margin: 0 !important;
-    width: 100%;
-  }
-}
-
-
- @media (max-width: 767px) {
-  
-  .navbar{
-    width: 100vw !important;  /* when we gave body to display flex, it also became small, thats why we gave it 100vw */
-   }
-
-  body{
-    display: flex;
-     flex-direction: column;
-     align-items: center;
-    
-   }
-  .container{
-     margin: 0rem !important;
-     padding: 0 !important;
-     
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-   }
-
-    .ShowALlCard{
-    margin: 0 !important;
-    padding: 1rem !important ;
-   }
-
-   .showAllImage{
-    height: 375px !important;
-   }
-  
-   .showCsrdbtns{
-     margin: 0 !important;
-   }
-   .wholeReviewSection{
-     margin: 0;
-     padding: .5rem !important; 
-     width: 80% !important;
-    }
-    .MapMainContainer{
-    margin: 0 !important;
-    width: 100vw;
-   }
-    .f-info{
-      width: 100vw; /* footer to 100% width*/
-    }
- }
-
-</style>
-
-
 
 
 

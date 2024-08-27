@@ -1,15 +1,18 @@
 
 <% layout("/layouts/boilerplate") %>
 
+<link rel="stylesheet" href="/css/Login_ejs.css">
+
+
 
 <body>
     
 <br><br>    
 
-<div class="row">   <!-- to make the space small that the form have occupied-->
-  <div class="col-8 offset-2">
+<div class="row outerLoginForm">   <!-- to make the space small that the form have occupied-->
+  <div class="col-8 offset-2 loginFormDetails">
 
-    <h3> Create a new Listing</h3> <br>
+    <h3 class="mainHeading"> Create a new Listing</h3> <br>
 
     <form  method="POST" action="/listing"  novalidate class="needs-validation" enctype="multipart/form-data">  <!-- At first disable brouser default 'required' then use bootstrape custom validator-->
 
