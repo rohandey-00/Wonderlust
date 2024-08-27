@@ -34,26 +34,20 @@ body{
 @media (max-width: 767.98px) { 
 
     .navbar{    
-        background-color:#ebebeb ;
-   }
-
+       background-color:#ebebeb ;
+    }
    .Explore-btn{
-    display: none !important;
-   }
-
+     display: none !important;
+    }
    .main-searchbar{
-    margin-top: 2rem !important;
-   }
-
-  
-
+      margin-top: 2rem !important;
+    }
    .search-box{
-    text-align: center;
-   }
-
+     text-align: center;
+    }
    .create-new-navbar{
-    margin-top: .5rem;
-   }
+     margin-top: .5rem;
+    }
 }
 
 
@@ -245,7 +239,6 @@ footer{
 
 /*======================  REVIEW STARTs ===================*/  
 
-
   .fa-star {
       color: rgb(27, 27, 27);
   }
@@ -255,7 +248,6 @@ footer{
   .tiny-star {
             font-size: 0.66rem; /* Adjust to make stars even smaller */
   }
-
 
 /*======================  Bellow REVIEW STARTs text  ===================*/  
 
@@ -270,14 +262,15 @@ footer{
 }
 
 
+
+
+
 /*======================  MAP section  ===================*/  
 
 #map {
     height:480px;
     width: 1120px; 
 }
-
-
 
 #marker {
         background-image: url('https://res.cloudinary.com/db4aeva1d/image/upload/v1724294837/file_h7l06v.png');  /* center custom logo Url */

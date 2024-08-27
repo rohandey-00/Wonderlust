@@ -18,11 +18,6 @@ module.exports.index = async(req, res)=>{
 
 module.exports.newListingForm = (req,res)=>{
 
-    // console.log(req.user);
-// if(!req.isAuthenticated()){ //check user is li=ogin or not
-//     req.flash("error", "You must be logged in!");
-//     return res.redirect("/login");
-// }
 res.render("listings/new.ejs");
 }
 
@@ -49,23 +44,6 @@ module.exports.showIndividualList = async(req, res)=>{
 
 module.exports.createNewList = async(req, res, next)=>{
     
-    // try{
-
-        /* IF one who send req without any body then we will send a custom error -------- Work only for full blank value , if we pass 1,2 parameter then it will not gave any error so we use batter option "JOI" package  
-        if(!req.body.Listing){
-            throw next(new ExpressError(400, "Bad request! Please send some data."));
-        } */
-
-/*      let result = listingSchema.validate(req.body);           
-        // console.log(result);
-        if(result.error){
-            throw new ExpressError(400, result.error);
-        }    WE MAKE IT IN FUNCTION             
-*/
-    
-        // let {title, description, image, price, location, country} = req.body;   *old way
-        // let listing = req.body;
-
         let url = req.file.path;
         let filename = req.file.filename;
         
@@ -83,12 +61,6 @@ module.exports.createNewList = async(req, res, next)=>{
         await newListing.save();
         req.flash("success", "New listing created!");  
         res.redirect("/listing");
-
-
-
-    // }catch(err){
-    //     next(err);   // send to the middleware at the last of the page {lets suppose a hacker send req in the price field with string value then db will gave an async error. and we have to handle it}
-    // } 
 }
 
 
@@ -120,18 +92,6 @@ module.exports.updateForm =  async(req, res)=>{
 module.exports.updateList = async(req, res)=>{
  
     let {id} = req.params;
-
-    // let listing = req.body;
-    // console.log(listing);
-
-    // For Backend protection 
-    /*  MAKE it middleware
-    let list = await Listing.findById(id);
-    if(!list.owner._id.equals(res.locals.currentUser._id)){
-        req.flash("error", "You don't have any permission!");
-        return res.redirect(`/listing/${id}`);
-    }
-    */ 
 
     await Listing.findByIdAndUpdate(id, req.body.Listing);  //1st time update all the value
 

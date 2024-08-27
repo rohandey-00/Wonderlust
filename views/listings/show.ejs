@@ -13,138 +13,71 @@
 <style>
 
 /*======================= FOR Mobile view ==========================*/
-@media (max-width: 1399px) { 
-  .mapContainer{
-  width: 1200px !important;
-}
-}
 
-
-
-@media (max-width: 991px) { 
+@media(max-width: 1200px){
   .ShowALlCard{
-    padding-right: 0;
-    margin: 0 0 0 5rem !important;
-}
- .showCsrdbtns{
-  margin: 0 0 0 5rem !important;
- }
-
- .wholeReviewSection{
-  margin: 0 0 0 5rem;
-  width: 80% !important;
- }
-}
-
-
-
-
-
-@media (max-width: 767px) { 
-    .main-Image{
-      height: 20rem !important;
-      width: 35rem !important;
-      overflow: hidden !important;
-    }
-    .container{
-     margin: 0rem !important;
-     padding: 0 !important;
-  }
- 
- .wholeReviewSection{
-  margin: 0 0 0 5rem;
-  width: 80% !important;
- }
- .ShowALlCard{
-    margin: 0 0 0 5rem !important;
- }
- .MapMainContainer{
     margin: 0 !important;
-    width: 100vw;
-   }
+    padding: 0 7.5rem !important ;
+  }
+  .MapMainContainer{
+    margin: 0 !important;
+    width: 100%;
+  }
 }
 
 
+ @media (max-width: 767px) {
+  
+  .navbar{
+    width: 100vw !important;  /* when we gave body to display flex, it also became small, thats why we gave it 100vw */
+   }
 
-
-
-@media (max-width: 699px) {
+  body{
+    display: flex;
+     flex-direction: column;
+     align-items: center;
+    
+   }
   .container{
      margin: 0rem !important;
      padding: 0 !important;
-  }
+     
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+   }
 
-  .main-Image{
-      height: 15rem !important;
-      width: 29rem !important;
-      overflow: hidden !important;
+    .ShowALlCard{
+    margin: 0 !important;
+    padding: 1rem !important ;
+   }
+
+   .showAllImage{
+    height: 375px !important;
+   }
+  
+   .showCsrdbtns{
+     margin: 0 !important;
+   }
+   .wholeReviewSection{
+     margin: 0;
+     padding: .5rem !important; 
+     width: 80% !important;
     }
-
- .ShowALlCard{
-    padding-right: .5rem !important;
-}
-
-.MapMainContainer{
+    .MapMainContainer{
     margin: 0 !important;
     width: 100vw;
    }
-
-  }
-
-
- @media (max-width: 625px) {
-  .container{
-     margin: 0rem !important;
-     padding: 0 !important;
-  }
-
-  .main-Image{
-      height: 14rem !important;
-      width: 24.2rem !important;
-      overflow: hidden !important;
+    .f-info{
+      width: 100vw; /* footer to 100% width*/
     }
-
- .ShowALlCard{
-    margin: 0;
-}
-.MapMainContainer{
-    margin: 0 !important;
-    width: 100vw;
-   }
  }
-
-
-@media (max-width: 469px) {
-
-  .container{
-      margin: 0rem !important;
-     padding: 0 !important;
-  }
-  .main-Image{
-      height: 13rem !important;
-      width: 20rem !important;
-      overflow: hidden !important;
-    }
-
-  .ShowALlCard{
-    margin-left: 2.5rem !important;
-}
- .showCsrdbtns{
-  margin: 0 0 0 2rem !important;
- }
-
- .wholeReviewSection{
-  margin: 0 0 0 2rem;
- }
-
- .MapContainer{
-  height: 370px !important;
-    }
-}
-
-
 
 </style>
+
+
+
+
 
 <body>
 

@@ -20,10 +20,9 @@ module.exports.listingSchema = Joi.object({
 
 
 
-/*    CHAT GPTTTTT         Schema for Creating a New Listing:
+/*   Have to improve the security in next update..   Schema for Creating a New Listing:
 
-javascript
-Copy code
+
 const Joi = require('joi');
 
 module.exports.createListingSchema = Joi.object({
@@ -39,8 +38,7 @@ module.exports.createListingSchema = Joi.object({
 });
 Schema for Updating an Existing Listing:
 
-javascript
-Copy code
+
 const Joi = require('joi');
 
 module.exports.updateListingSchema = Joi.object({

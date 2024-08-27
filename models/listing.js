@@ -10,12 +10,7 @@ const listingSchema = new Schema({
        required: true,
    },
    description: String,
-   // image: {
-   //     type: String,
-   //     default: "https://images.unsplash.com/photo-1720457975117-d3f6764358f4?q=80&w=1364&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-   //     set: (v) => v===""? "https://images.unsplash.com/photo-1720457975117-d3f6764358f4?q=80&w=1364&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" : v,     //ternary operator  to set default image link if user will not gave any link 
-   // },
-   image: {
+    image: {
       url: String,
       filename: String,
    },

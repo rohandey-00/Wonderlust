@@ -30,50 +30,6 @@ const validateListing = (req, res, next)=>{
 
 
 
-
-
-
-
-// /*  Show all the list */
-// router.get("/", wrapAsync(listingController.index));
-
-
-
-// //get a new form for new list  [ we place before "/listing/:id" because it will confused and gave err]  // [1]
-// router.get("/new", isLogin, listingController.newListingForm);
-
-
-
-// /* show route individually */
-// router.get("/:id", wrapAsync(listingController.showIndividualList));
-
-
-
-// /* CREATE: received request from  /listing/new  {new list form} */                                          // [2] 
-// router.post("/", isLogin, validateListing, wrapAsync(listingController.createNewList));
-
-
-
-// /* Get a edit route form for UPDATE */
-// router.get("/:id/edit", isLogin, isOwner, wrapAsync(listingController.updateForm));
-
-
-
-// /* UPDATE route*/
-// router.patch("/:id", isLogin, isOwner, validateListing, wrapAsync(listingController.updateList));
-
-
-
-// /* DELETE route*/
-// router.delete("/:id", isLogin, isOwner, wrapAsync(listingController.destroyListing));
-
-
-
-
-////////////////////////////////////////////////         ReStructure With Router.route() , it's more compact       //////////////////////////////////////////////////////////////////////////
-
-
-
 router.get("/new", isLogin, listingController.newListingForm);    //get a new form for new list  [ we place before "/listing/:id" because it will confused and gave err]  // [1]
 
 

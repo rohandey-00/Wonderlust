@@ -5,14 +5,10 @@ if(process.env.NODE_ENV != "production"){
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-const Listing = require("./models/listing.js");
 const methodOverride = require('method-override')
 const ejsMate = require('ejs-mate');
 const path = require("path");
-const  wrapAsync = require("./utils/wrapAsync.js");
 const ExpressError = require("./utils/expressError.js");
-const { listingSchema, reviewSchema } = require("./schema.js");  //joi validator
-const Review = require("./models/review.js");
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const { MongoClient } = require('mongodb');
@@ -86,7 +82,6 @@ const userRouter = require("./routes/user.js");
 
 
 
-
 app.set("view engin", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));   //to use css, js
@@ -114,40 +109,15 @@ async function main(){
 
 
 
- /* Validation middleware to check joi validation */
-/*
-const validateListing = (req, res, next)=>{
-      
-    let {error} = listingSchema.validate(req.body);           
-        if(error){
-            throw new ExpressError(400, error);
-        }else{
-            next();
-        }
-};
-
-const validateReview = (req, res, next)=>{
-
-    let {error} = reviewSchema.validate(req.body);           
-    if(error){
-        throw new ExpressError(400, error);
-    }else{
-        next();
-    }
-};
-*/
-
-
 /*==========================================================================================================*/
 /*==========================================================================================================*/
 
 
 
 /*  THE  HOME ROUTE */
-// app.get("/",(req,res)=>{
-//     res.send("Welcome to home route");
-// });
-
+app.get("/",(req,res)=>{
+    res.redirect("/listing");
+});
 
 
 //  All route for listing, review, user signup
@@ -157,22 +127,6 @@ app.use("/listing/:id/review", reviewRouter);
 
 app.use("/", userRouter);
 
-
-
-
-
-/*    Add Demo User
-app.get("/demouser", async(req,res)=>{
-    let fakeUser = new User({
-        email: "student@hotmail.com",
-        username: "delta-student",
-    });
-
-    let registerUser = await User.register(fakeUser, "password");
-    res.send(registerUser);
-});
-
-*/
 
 
 
@@ -191,15 +145,12 @@ app.use((err, req, res, next)=>{
     let {statusCode = 500, message = "Something went wrong!"} = err;
     res.status(statusCode).render("listings/error.ejs", {message});
 
-    // res.status(statusCode).send(message);
-    // res.send("Something went wrong!");  
 })
 
 
 
 /*==========================================================================================================*/
 
-// Always best practise to place itin bottom
 app.listen(8080, ()=>{
     console.log("app listening on port 8080");
 });
