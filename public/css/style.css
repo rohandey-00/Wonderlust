@@ -1,0 +1,492 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+:root{
+	--primary-color: #FF5A5F;
+	--secondary-color: #fff;
+	--nav-back: #ebebeb;
+
+  --text-primary:    #222222;   /* Main text — dark gray, easier on the eyes than pure black */
+  --text-btn:        #f0eeee; 
+  --text-secondary:  #555555;   /* Subtle but still readable */
+  --text-muted:      #888888;   /* For less important or disabled text */
+  --text-link:       #FF5A5F;   /* Matches your brand primary color */
+  --text-heading:    #111111; 
+  
+  --btn-primary:     #FF5A5F;
+  --btn-secondary:   #1b1b1b;   
+  
+
+	--footer-border: rgb(190, 190, 190);
+	--footer-link: #222222;
+
+	--review-star-fill: rgb(27, 27, 27);
+	--review-star-blank: lightgray;
+}
+
+/* dark mode class to change the color */
+.dark-on{
+  --primary-color: #FF5A5F;
+	--secondary-color: #1a1a1a;
+	--nav-back: #2c2c2c;
+ 
+ --text-primary:	#f0f0f0;
+--text-secondary:	#bbbbbb;	
+--text-muted:	#777777;	
+--text-link	:#FF5A5F;	
+--text-heading :#ffffff;
+
+
+	--footer-border: rgb(190, 190, 190);
+	--footer-link: #222222;
+
+	--review-star-fill: rgb(27, 27, 27);
+	--review-star-blank: lightgray;
+  color: rgb(192, 191, 191);
+  background-color: #222222;
+
+  .listing-card{
+    background-color: #222222;
+    color: #ebebeb;
+    
+  }
+
+  .reviewCard{
+    background-color: #514f4f;
+    color: #fff;
+  }
+
+
+
+  .reviewSubmitBtn{
+    background-color: #b6b4b4;
+  }
+  .reviewSubmitBtn:hover{
+    background-color: #858383;
+  }
+
+  .cardBodyDarkMode{
+    background-color: #3a3a3a;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+
+  }
+}
+
+
+/* ========================================================================== */
+
+body{
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+/*======================  NAVBAR ===================*/
+
+ .navbar{    
+    background-color:var(--secondary-color) ;
+    padding: 1.5rem !important;
+    
+  }
+
+.fa-compass{
+    color: var(--primary-color);
+    font-size: 2rem;
+}
+
+@media (max-width: 767.98px) { 
+
+    .navbar{    
+        background-color:var(--nav-back) ;
+   }
+
+   .Explore-btn{
+    display: none !important;
+   }
+
+   .main-searchbar{
+    margin-top: 2rem !important;
+   }
+
+   .search-box{
+    text-align: center;
+   }
+
+   .create-new-navbar{
+    margin-top: .5rem;
+   }
+}
+
+
+
+
+/*======================  NAVBAR ICONS ===================*/
+
+#filters{
+  display:flex;
+  align-items: center;
+}
+
+.filter{
+ display: flex;
+flex-direction: column;
+align-items: center;  
+margin: .6rem;
+margin-right: 2rem;
+opacity: .7;
+}
+
+.filter:hover{
+  opacity: 1;
+  cursor: pointer;
+}
+
+#iconsName{
+  font-size: 13px;
+}
+
+.nav-link{
+  color: var(--text-primary)!important;
+}
+
+.search-box::placeholder {
+  color: var(--text-secondary)!important;
+}
+
+
+
+
+/*======================  SEARCH BAR ===================*/
+
+.search-btn{
+    background-color: var(--primary-color) !important;
+    color: var(--secondary-color) !important;
+    border: none !important;
+    border-radius: 3rem !important;
+    width: 11rem !important;
+}
+
+.search-button{
+  width: 3rem !important;
+}
+
+.search-btn i{
+    display: inline-block !important;
+}
+
+.search-box{
+    text-align: center;
+    border-radius: 3rem !important;
+    font-size: .8rem !important;
+}
+
+
+
+
+/*======================  FOOTER ===================*/
+
+footer{
+    height: 8rem;
+    border-top: 1px solid var(--footer-border); /*rgb(190, 190, 190);*/
+    background-color:var(--nav-back); /*#ebebeb;*/
+    padding-top: 1rem;
+
+    /*  to FIXED in bottom */
+    margin-top: auto;     /* + in body{  min-height:100vh; display:flex; flex-direction:column;  }*/
+
+    
+}
+
+.f-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: .5rem;
+}
+
+
+
+.f-info-links a{
+    text-decoration: none;
+    color: var(--footer-link) /*#222222;*/
+}
+.f-info-links a:hover{
+    text-decoration: underline;
+}
+
+
+/*icons*/
+.fa-brands{
+    margin: .4rem;
+    font-size: 1.2rem;
+}
+
+
+
+
+
+/*======================  MAIN CARDs ===================*/
+
+.ShowALlCard{
+    padding-right: 15rem;
+}
+
+.listing-card{
+    border: none !important;
+    margin-bottom: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;    
+   
+}
+
+.card-img-top{
+  border-top-left-radius: 2rem !important;
+  border-top-right-radius: 2rem !important;
+    width: 100% !important;
+    object-fit: cover !important;  /* to covered image perfectly*/ 
+}
+
+.card-body{
+    padding: 1 !important;
+}
+
+.listing-link{   /* to remove anchor tag's line*/
+    text-decoration: none;
+}
+
+
+.card-img-overlay{
+    opacity: 0;
+}
+
+.card-img-overlay:hover{
+    opacity: 0.1;
+    background-color: var(--secondary-color);
+}
+
+.card-title{
+  color: var( --text-primary)!important;
+}
+.previousTaxInfo, .taxInfo{
+  color: var( --text-secondary)
+}
+
+
+
+
+
+
+/*======================  NEW PAGE FORM  ===================*/
+.addbtn{
+    background-color: var(--primary-color) !important;
+    color: var(--secondary-color) !important;
+}
+
+
+
+
+
+/*======================  EDIT PAGE  ===================*/
+.editbtn{
+    background-color: var(--btn-primary) !important;
+    color: var(--text-btn) !important;
+}
+
+.form-control{
+  background-color: var(--secondary-color)!important;
+  color:var( --text-secondary)!important;
+}
+
+
+
+
+
+/*======================  DETAILS POST PAGE  ===================*/
+
+.editFormbtn{
+    background-color: var(--btn-primary) !important;
+    color: var(--text-btn) !important;
+    width: 6rem;
+    height: 2.5rem;
+}
+
+.editFormbtnD{
+    background-color: var(--btn-secondary) !important; /*rgb(27, 27, 27); */
+}
+
+
+.showCsrdbtns{
+ display: flex;
+ gap: 2rem;
+}
+
+.showAllImage{
+    border-radius: 1rem !important ;
+    width: 100% !important;
+    height: 27rem !important;
+
+    object-fit: cover !important;  /* to covered image perfectly*/ 
+}
+
+
+
+
+
+
+/*======================  REVIEW STARTs ===================*/  
+
+
+  .fa-star {
+      color: var(--review-star-fill); /*rgb(27, 27, 27); */
+  }
+  .unchecked {
+      color: var(--review-star-blank);  /* lightgray;*/
+  }
+  .tiny-star {
+            font-size: 0.66rem; /* Adjust to make stars even smaller */
+  }
+
+
+/*======================  Bellow REVIEW STARTs text  ===================*/  
+
+.card-text{
+    margin-top: 1rem;
+    margin-bottom: 1.5rem !important;
+}
+
+.card-title{
+    font-size: 1rem;
+    margin-top: .5rem;
+}
+
+
+/*======================  MAP section  ===================*/  
+
+#map {
+    height:480px;
+    width: 1120px; 
+}
+
+
+
+#marker {
+        background-image: url('https://res.cloudinary.com/db4aeva1d/image/upload/v1724294837/file_h7l06v.png');  /* center custom logo Url */
+        background-size: cover;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        cursor: pointer;
+}
+
+.mapboxgl-popup {
+          max-width: 200px;
+}
+    
+
+
+
+
+
+
+
+
+
+
+
+/*====================== DARK MODE  ======================*/
+.dark-toggle-wrapper {
+    /* position: fixed; */
+    /* top: 20px;
+    left: 20px; */
+    padding: 8px;
+    z-index: 1000;
+  }
+
+
+  .dark-toggle {
+    position: relative;
+    width: 60px;
+    height: 30px;
+  }
+
+  .dark-toggle input[type="checkbox"] {
+    display: none;
+  }
+
+  .dark-toggle label {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #ebebeb;
+    border-radius: 30px;
+    position: relative;
+    cursor: pointer;
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3),
+                inset 0 -2px 6px rgba(255, 255, 255, 0.3);
+    transition: background 0.3s;
+  }
+
+  .dark-toggle label:after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 26px;
+    height: 26px;
+    background: linear-gradient(180deg, #ffcc89, #d8860b);
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+  }
+
+  .dark-toggle svg {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    top: 8px;
+    fill: #fff;
+    pointer-events: none;
+    transition: fill 0.3s;
+  }
+
+  .dark-toggle .sun {
+    left: 8px;
+  }
+
+  .dark-toggle .moon {
+    right: 8px;
+    fill: #7e7e7e;
+  }
+
+  .dark-toggle input[type="checkbox"]:checked + label {
+    background: #242424;
+  }
+
+  .dark-toggle input[type="checkbox"]:checked + label:after {
+    left: calc(100% - 28px);
+    background: linear-gradient(180deg, #777, #3a3a3a);
+  }
+
+  .dark-toggle input[type="checkbox"]:checked + label .sun {
+    fill: #7e7e7e;
+  }
+
+  .dark-toggle input[type="checkbox"]:checked + label .moon {
+    fill: #fff;
+  }
+
+  .dark-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #fff;
+    z-index: -1;
+    transition: background 0.3s;
+  }
+
+  .dark-on .dark-background {
+    background: #242424;
+  }

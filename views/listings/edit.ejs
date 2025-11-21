@@ -1,0 +1,71 @@
+<!-- Add boilerplate code  -->
+<% layout("/layouts/boilerplate") %>
+
+
+<br><br>
+
+<div class="row">   <!-- to make the space small that the form have occupied-->
+    <div class="col-8 offset-2">
+
+    <h3> Edit your Listing: </h3> <br>
+    <form  method="POST" action="/listing/<%=list._id%>?_method=PATCH" novalidate class="needs-validation"   enctype="multipart/form-data">  <!-- At first disable brouser default 'required' then use bootstrape custom validator-->
+
+        <div class="mb-3">
+            <label for="editTitle" class="form-label">Title</label>
+            <input type="text" id="editTitle" class="form-control" value="<%= list.title %>" name="Listing[title]" required>         <!-- Listing object, key [title]  new way-->
+        </div>
+
+        <div class="mb-3">
+            <label for="editDesc" class="form-label">Description</label>
+            <textarea id="editDesc" name="Listing[description]"  rows="10" cols="40" class="form-control" required> <%= list.description %> </textarea>    
+            
+            <div class="invalid-feedback"> Please provide a short description </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="previewImg" class="form-label">Origial image</label> <br>
+            <img src="<%= compressedImageUrl %>" id="previewImg" alt="img" style="height: 135px;">
+           
+        </div>
+
+        <div class="mb-3">
+            <label for="editImage" class="form-label">Upload a new image</label>
+            <input type="file" id="editImage" class="form-control"  name="Listing[image]">
+
+        </div>
+        
+    <div class="row">   <!--make them join -->
+        <div class="mb-3 col-md-4">    <!-- After mediam page size only it would go into same line {4 collumn}, otherwise in small page it must be show in different line -->
+            <label for="editPrice" class="form-label">Price</label>
+
+            <div class="input-group">
+                <span class="input-group-text" id="basic-addon1">₹</span>
+                <input type="number" id="editPrice" class="form-control" value="<%= list.price %>" name="Listing[price]" required>
+                <div class="invalid-feedback"> Enter valid price </div>
+            </div>
+           
+        </div>
+
+        <div class="mb-3 col">
+            <label for="editLocation" class="form-label">Location</label>
+            <input type="text" id="editLocation" class="form-control" value="<%= list.location %>" name="Listing[location]" required>
+
+            <div class="invalid-feedback"> Please provide a location name</div>
+        </div>
+    </div>
+       
+        <div class="mb-3">
+            <label for="editCountry" class="form-label">Country</label>
+            <input type="text" id="editCountry" class="form-control" value="<%= list.country %>"  name="Listing[country]" required>
+           
+            <div class="invalid-feedback"> Please provide a country name</div>
+        </div>
+        
+        <br>
+        <button class="btn editbtn">Add</button>
+    </form>
+    <br><br> <br> <br> <br>
+  </div>
+</div>
+
+</body>

@@ -1,0 +1,24 @@
+
+<% if(success[0]){ %>   <!-- Because  res.local.success is an array, so even thow the array is empty untill we create a new poost,,,,,but the array exist so that's why we use  "if(success[0])"  rather then  "if(success)"     -->
+    
+<div class="alert alert-success alert-dismissible fade show" role="alert">  
+
+    <%= success %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+</div>
+<% } %>
+
+
+<!--Same for error-->
+
+
+<% if(error[0]){ %>   <!-- Because  res.local.success is an array, so even thow the array is empty untill we create a new poost,,,,,but the array exist so that's why we use  "if(success[0])"  rather then  "if(success)"     -->
+    
+<div class="alert alert-danger alert-dismissible fade show" role="alert">  
+
+    <%= error %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+</div>
+<% } %>

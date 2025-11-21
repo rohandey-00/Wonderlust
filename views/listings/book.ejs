@@ -1,0 +1,174 @@
+<% layout("/layouts/boilerplate") %>
+
+<style>
+  /* Custom styling for guest selection cards */
+  .guest-card {
+      cursor: pointer;
+      padding: 20px;
+      text-align: center;
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .guest-card.selected {
+      background-color: #3e3e44; /* Darker background when selected */
+      color: #FF5A5F;  /* White text when selected */
+      transform: scale(1.1); /* Slightly enlarge the card */
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Add shadow to make the card pop */
+  }
+
+  .guest-card:hover {
+      background-color: #f0f0f0;
+      color: #FF5A5F;
+      transform: scale(1.05);
+  }
+
+  .guest-card span {
+      font-size: 24px;
+  }
+
+  .guest-count-text {
+      margin-top: 20px;
+      font-size: 14px;
+  }
+
+  .spinner-container {
+    display: none;
+  }
+</style>
+
+<body>
+
+<br><br>
+
+<div class="row">
+  <div class="col-8 offset-2">
+    <h3> Hotel Reservation </h3> <br>
+
+    <form action="/listing" novalidate class="needs-validation" id="reservationForm">
+
+        <div class="mb-3">
+            <label for="title" class="form-label">Full name</label>
+            <input type="text" class="form-control" id="title" placeholder="Enter your name" name="Listing[title]" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="mobileNo" class="form-label">Contact no.</label>
+          <input type="number" class="form-control" id="mobileNo" placeholder="Enter your mobile number" name="Listing[title]" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="aadharNO" class="form-label">Aadhar no.</label>
+          <input type="number" class="form-control" id="aadharNO" placeholder="Enter your aadhar number" name="Listing[title]" required>
+        </div>
+        
+
+         <!-- Check-In and Check-Out Date -->
+         <div class="mb-3">
+          <label class="form-label">Dates</label>
+          <div class="row">
+            <!-- Check-In Date -->
+            <div class="col-md-6">
+              <label for="checkin" class="form-label">Check-In Date</label>
+              <input type="date" class="form-control" id="checkin" required>
+            </div>
+        
+            <!-- Check-Out Date -->
+            <div class="col-md-6">
+              <label for="checkout" class="form-label">Check-Out Date</label>
+              <input type="date" class="form-control" id="checkout" required>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Number of Guests (Range Slider) -->
+        <div class="mb-3">
+          <label for="guests" class="form-label">Number of Guests</label>
+          <div class="d-flex justify-content-around">
+              <div class="guest-card" id="guest1" onclick="selectGuest(1)">
+                  <span>1</span> Guest
+              </div>
+              <div class="guest-card" id="guest2" onclick="selectGuest(2)">
+                  <span>2</span> Guests
+              </div>
+              <div class="guest-card" id="guest3" onclick="selectGuest(3)">
+                  <span>3</span> Guests
+              </div>
+              <div class="guest-card" id="guest4" onclick="selectGuest(4)">
+                  <span>4</span> Guests
+              </div>
+          </div>
+          <div class="guest-count-text" id="guest-count-text">1 Guest Selected</div>
+      </div>
+
+        <!-- Debit Card Number -->
+        <div class="mb-3">
+            <label for="cardnumber" class="form-label">Debit Card Number</label>
+            <input type="text" class="form-control" id="cardnumber" name="cardnumber" pattern="\d{16}" placeholder="Enter 16-digit card number" required>
+        </div>
+
+        <!-- CVV -->
+        <div class="mb-3">
+            <label for="cvv" class="form-label">CVV</label>
+            <input type="password" class="form-control" id="cvv" name="cvv" pattern="\d{3}" placeholder="Enter 3-digit CVV" required>
+        </div>
+
+        <br>
+        
+        <button class="btn addbtn" type="submit">Make Payment</button>
+        <br><br>
+    </form>
+
+    <!-- Loading Spinner -->
+    <div class="spinner-container" id="spinnerContainer">
+      <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+      </div>
+      <p>Please wait while we process your request...</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  let selectedGuests = 1;  // Default number of guests
+
+  // Function to select the number of guests
+  function selectGuest(guestCount) {
+      selectedGuests = guestCount;
+      document.getElementById('guest-count-text').textContent = guestCount + " Guest" + (guestCount > 1 ? "s" : "") + " Selected";
+
+      // Remove 'selected' class from all cards
+      let allCards = document.querySelectorAll('.guest-card');
+      allCards.forEach(card => card.classList.remove('selected'));
+
+      // Add 'selected' class to the clicked card
+      document.getElementById('guest' + guestCount).classList.add('selected');
+  }
+
+  // Handle form submission
+  document.getElementById('reservationForm').addEventListener('submit', function(event) {
+      // Prevent default form submission
+      event.preventDefault();
+      
+      // Validate form inputs manually
+      if (!this.checkValidity()) {
+          event.stopPropagation();
+          this.classList.add('was-validated');
+          return;
+      }
+
+      // Show spinner and disable submit button
+      document.getElementById('spinnerContainer').style.display = 'block';
+      document.querySelector('button[type="submit"]').disabled = true;
+
+      // Submit the form after the 4-second delay
+      setTimeout(function() {
+          event.target.submit();  // Submit the form
+      }, 4000);
+  });
+</script>
+
+</body>
+

@@ -1,0 +1,74 @@
+<% layout("/layouts/boilerplate") %>
+<style>
+    .review-list {
+      max-height: 100px;
+      overflow-y: auto;
+    }
+  </style>
+
+<body>
+    <h6>ALL DATAS</h6>
+
+
+<table class="table table-bordered table-hover align-middle">
+  <thead class="table-dark">
+    <tr>
+      <th>Username</th>
+      <th>Title</th>
+      <th>Price</th>
+      <th>Location</th>
+      <th>Reviews</th>
+      <th>Availability</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <% for (let list of allListing) { %> 
+      
+      <tr>  
+        <td><%= list.owner?.username || "Unknown" %></td>  <!--suggest by ai-->
+        
+        <td><%= list.title %></td>
+
+        <td><%= list.price %></td>
+
+        <td><%= list.location %></td>
+       
+        <td>
+          <div class="review-list">
+            <ul class="list-unstyled mb-0">
+              <% if (list.reviews && list.reviews.length > 0) { %>
+                <% list.reviews.forEach(review => { %>
+                  <li><%= review.comment %></li> 
+                  <li>(<%= review.rating %>  stars)</li> <br>
+                <% }); %>
+              <% } else { %>
+                <li>No reviews</li>
+              <% } %>
+              </ul>
+          </div>
+        </td>
+        <td>
+          <% if (list.available) { %>
+            <span class="text-success fs-4">✅</span>
+          <% } else { %>
+            <span class="text-danger fs-4">❌</span>
+          <% } %>
+        </td>
+        
+        <td>
+          <a href="/listing/<%= list._id %>" class="btn btn-primary btn-sm">View</a>
+          <form action="/listing/<%= list._id %>?_method=DELETE" method="POST" class="d-inline">
+            <button class="btn btn-danger btn-sm">Delete</button>
+          </form>
+        </td>
+      </tr>
+     <% } %>
+
+  </tbody>
+</table>
+
+
+    </div>
+</body>

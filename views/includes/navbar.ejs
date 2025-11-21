@@ -1,0 +1,88 @@
+
+
+<nav class="navbar navbar-expand-md bg-body-light  sticky-top">  <!--navbar -expend-md means we need show full navbar upto md screen size after that it turn into small button-->
+   
+  <div class="container-fluid">
+      <a class="navbar-brand" href="/listing">  <i class="fa-solid fa-compass"></i>  </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+            <div class="navbar-nav">
+              <a class="nav-link Explore-btn" href="/listing">Explore</a>                 
+            </div>
+
+            <div class="navbar-nav ms-auto main-searchbar">
+              <form class="d-flex" role="search">
+                <input class="form-control me-2 search-box" type="search" placeholder="Search Destination" >
+                <button class="btn btn-outline-success search-btn search-button" type="submit" > <i class="fa-solid fa-magnifying-glass"></i> </button>
+              </form>
+            </div>
+
+ 
+            
+
+            
+            
+
+
+            <div class="navbar-nav ms-auto">   <!--margin start - auto to shift in the right side -->
+              <!--dark mode btn-->
+              <div class="dark-toggle-wrapper">
+                <div class="dark-toggle">
+                  <input type="checkbox" id="darkmode-toggle" />
+                  <label for="darkmode-toggle">
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 496">
+                      <circle cx="248" cy="248" r="100" />
+                    </svg>
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 49.739 49.739">
+                      <path d="M25.068,48.889c-9.173,0-18.017-5.06-22.396-13.804C-3.373,23.008,1.164,8.467,13.003,1.979l2.061-1.129l-0.615,2.268
+                        c-1.479,5.459-0.899,11.25,1.633,16.306c2.75,5.493,7.476,9.587,13.305,11.526c5.831,1.939,12.065,1.492,17.559-1.258v0
+                        c0.25-0.125,0.492-0.258,0.734-0.391l2.061-1.13l-0.585,2.252c-1.863,6.873-6.577,12.639-12.933,15.822
+                        C32.639,48.039,28.825,48.888,25.068,48.889z"/>
+                    </svg>
+                  </label>
+                </div>
+                <!-- <div class="dark-background"></div>    actual effect afer toggling the background -->
+              </div>
+
+              <!-- ------------------------------------------------------------------------------------------------------------------------ -->
+               <a class="nav-link create-new-navbar " href="/listing/new"> New    wonderlust </a>
+
+               <% if(!currentUser){ %>
+                <a class="nav-link" href="/signup"><b>Signup</b></a>
+                <a class="nav-link" href="/login"><b>Login</b></a>
+                <%}%>
+
+                <% if(currentUser){ %>
+                <a class="nav-link" href="/logout"><b>Logout</b></a>
+               <%}%>
+            </div>
+       </div>
+       
+    </div>
+  </nav>
+
+
+  <script>
+    const toggle = document.getElementById('darkmode-toggle');
+    const root = document.body;
+
+    // On load, apply dark mode if stored
+    if (localStorage.getItem('darkMode') === 'enabled') {
+      toggle.checked = true;
+      root.classList.add('dark-on');
+    }
+
+    // On toggle change
+    toggle.addEventListener('change', () => {
+      if (toggle.checked) {
+        localStorage.setItem('darkMode', 'enabled');
+        root.classList.add('dark-on');
+      } else {
+        localStorage.setItem('darkMode', 'disabled');
+        root.classList.remove('dark-on');
+      }
+    });
+  </script>
